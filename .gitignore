@@ -1,0 +1,11 @@
+# OMC 런타임 상태 (로컬 도구 상태이므로 제외)
+.omc/
+.omo/
+
+# 기획 산출물 백업 (부분 재실행 시 자동 생성)
+_workspace_prev/
+
+# OS / 에디터
+Thumbs.db
+.DS_Store
+*.swp

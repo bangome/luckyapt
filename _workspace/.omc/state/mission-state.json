@@ -1,0 +1,143 @@
+{
+  "updatedAt": "2026-06-10T07:03:44.264Z",
+  "missions": [
+    {
+      "id": "session:ff12d4a5-f1e4-447f-8f75-8cb8a0620dce:none",
+      "source": "session",
+      "name": "none",
+      "objective": "Session mission",
+      "createdAt": "2026-06-10T06:38:14.251Z",
+      "updatedAt": "2026-06-10T07:03:44.264Z",
+      "status": "done",
+      "workerCount": 2,
+      "taskCounts": {
+        "total": 2,
+        "pending": 0,
+        "blocked": 0,
+        "inProgress": 0,
+        "completed": 2,
+        "failed": 0
+      },
+      "agents": [
+        {
+          "name": "general-purpose:a27ffd5",
+          "role": "general-purpose",
+          "ownership": "a27ffd5ff7a90bc7a",
+          "status": "done",
+          "currentStep": null,
+          "latestUpdate": "completed",
+          "completedSummary": null,
+          "updatedAt": "2026-06-10T06:46:24.534Z"
+        },
+        {
+          "name": "general-purpose:adb52dc",
+          "role": "general-purpose",
+          "ownership": "adb52dccf0f066e18",
+          "status": "done",
+          "currentStep": null,
+          "latestUpdate": "completed",
+          "completedSummary": null,
+          "updatedAt": "2026-06-10T07:03:44.264Z"
+        }
+      ],
+      "timeline": [
+        {
+          "id": "session-stop:a27ffd5ff7a90bc7a:2026-06-10T06:46:21.839Z",
+          "at": "2026-06-10T06:46:21.839Z",
+          "kind": "completion",
+          "agent": "general-purpose:a27ffd5",
+          "detail": "completed",
+          "sourceKey": "session-stop:a27ffd5ff7a90bc7a"
+        },
+        {
+          "id": "session-stop:a27ffd5ff7a90bc7a:2026-06-10T06:46:24.534Z",
+          "at": "2026-06-10T06:46:24.534Z",
+          "kind": "completion",
+          "agent": "general-purpose:a27ffd5",
+          "detail": "completed",
+          "sourceKey": "session-stop:a27ffd5ff7a90bc7a"
+        },
+        {
+          "id": "session-start:adb52dccf0f066e18:2026-06-10T06:47:27.873Z",
+          "at": "2026-06-10T06:47:27.873Z",
+          "kind": "update",
+          "agent": "general-purpose:adb52dc",
+          "detail": "started general-purpose:adb52dc",
+          "sourceKey": "session-start:adb52dccf0f066e18"
+        },
+        {
+          "id": "session-stop:adb52dccf0f066e18:2026-06-10T07:03:05.892Z",
+          "at": "2026-06-10T07:03:05.892Z",
+          "kind": "completion",
+          "agent": "general-purpose:adb52dc",
+          "detail": "completed",
+          "sourceKey": "session-stop:adb52dccf0f066e18"
+        },
+        {
+          "id": "session-stop:adb52dccf0f066e18:2026-06-10T07:03:15.196Z",
+          "at": "2026-06-10T07:03:15.196Z",
+          "kind": "completion",
+          "agent": "general-purpose:adb52dc",
+          "detail": "completed",
+          "sourceKey": "session-stop:adb52dccf0f066e18"
+        },
+        {
+          "id": "session-stop:adb52dccf0f066e18:2026-06-10T07:03:21.106Z",
+          "at": "2026-06-10T07:03:21.106Z",
+          "kind": "completion",
+          "agent": "general-purpose:adb52dc",
+          "detail": "completed",
+          "sourceKey": "session-stop:adb52dccf0f066e18"
+        },
+        {
+          "id": "session-stop:adb52dccf0f066e18:2026-06-10T07:03:27.123Z",
+          "at": "2026-06-10T07:03:27.123Z",
+          "kind": "completion",
+          "agent": "general-purpose:adb52dc",
+          "detail": "completed",
+          "sourceKey": "session-stop:adb52dccf0f066e18"
+        },
+        {
+          "id": "session-stop:adb52dccf0f066e18:2026-06-10T07:03:30.986Z",
+          "at": "2026-06-10T07:03:30.986Z",
+          "kind": "completion",
+          "agent": "general-purpose:adb52dc",
+          "detail": "completed",
+          "sourceKey": "session-stop:adb52dccf0f066e18"
+        },
+        {
+          "id": "session-stop:adb52dccf0f066e18:2026-06-10T07:03:34.364Z",
+          "at": "2026-06-10T07:03:34.364Z",
+          "kind": "completion",
+          "agent": "general-purpose:adb52dc",
+          "detail": "completed",
+          "sourceKey": "session-stop:adb52dccf0f066e18"
+        },
+        {
+          "id": "session-stop:adb52dccf0f066e18:2026-06-10T07:03:37.388Z",
+          "at": "2026-06-10T07:03:37.388Z",
+          "kind": "completion",
+          "agent": "general-purpose:adb52dc",
+          "detail": "completed",
+          "sourceKey": "session-stop:adb52dccf0f066e18"
+        },
+        {
+          "id": "session-stop:adb52dccf0f066e18:2026-06-10T07:03:40.147Z",
+          "at": "2026-06-10T07:03:40.147Z",
+          "kind": "completion",
+          "agent": "general-purpose:adb52dc",
+          "detail": "completed",
+          "sourceKey": "session-stop:adb52dccf0f066e18"
+        },
+        {
+          "id": "session-stop:adb52dccf0f066e18:2026-06-10T07:03:44.264Z",
+          "at": "2026-06-10T07:03:44.264Z",
+          "kind": "completion",
+          "agent": "general-purpose:adb52dc",
+          "detail": "completed",
+          "sourceKey": "session-stop:adb52dccf0f066e18"
+        }
+      ]
+    }
+  ]
+}
