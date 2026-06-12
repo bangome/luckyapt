@@ -1,6 +1,6 @@
 # humanize_ep_003 — 3화 휴머나이즈 윤문 리포트
 
-대상: `_workspace/chapters/ep_003_봄_이사철_중간정산.md`
+대상: `_workspace/chapters/ep_003_봄이사철_식은호빵같은사람.md`
 기준: 1·2화 확립 필체 + `notes/style_policy.md`(통신체 금지) + 역추출 `07_author_voice.md`
 원칙: 사실·구조·대사 의미·오독(Q2)·캐논 **불변**, 표현·리듬·어휘만.
 

@@ -1,7 +1,7 @@
 # 검수 보고서 — S1-E01 3화 「봄 이사철 관리비 중간정산 전쟁 · 3화」
 
 > 검수자: continuity-editor · 일자: 2026-06-12
-> 대상: `_workspace/chapters/ep_003_봄_이사철_중간정산.md`
+> 대상: `_workspace/chapters/ep_003_봄이사철_식은호빵같은사람.md`
 > 대조: ep_001/002, `12_canon_인물조직_확정.md`(★최우선), `03_plot_structure.md`, `02_characters_sheet.md`, `01_worldbible_setting.md`, `notes/style_policy.md`
 > 축: [정합] = 설정·시점·연속성·문체 / [개연] = 감정·관계·행동의 인과 납득성
 
