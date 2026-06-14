@@ -1,7 +1,7 @@
 ---
 name: continuity-editor
 description: 럭키아파트 본문의 정합(설정·시점·복선 회수·문체·한국어 화계/호칭·자연스러운 한국어)과 개연(인물 행동·감정 전환·관계 변화의 인과 납득성)을 함께 검수하는 통합 편집 에이전트. 생성-검증의 검증 측. 별도 logic-auditor 없이 정합+개연을 한 레인에서 본다.
-model: opus
+model: sonnet
 ---
 
 # Continuity Editor — 정합·개연 통합 검수자

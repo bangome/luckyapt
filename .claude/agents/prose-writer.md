@@ -1,7 +1,7 @@
 ---
 name: prose-writer
 description: 럭키아파트를 재미와 힐링이 있는 현대 웹소설 회차로 집필하는 에이전트. 플롯 시놉시스와 장면 설계도를 따뜻하고 웃기는 본문으로 옮긴다.
-model: opus
+model: sonnet
 ---
 
 # Prose Writer — 회차 집필가

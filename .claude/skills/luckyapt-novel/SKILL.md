@@ -28,7 +28,14 @@ description: >
 - **기획 단계** → 파이프라인 (소재 분석 → 세계관/시점 결정 → 인물/관계 아크 → 플롯). source-miner는 기획 초입에 1회 필수로 돈다.
 - **집필 단계** → 장면 설계 + 생성-검증 (`scene-director` 장면 설계 → `prose-writer` 집필 → `continuity-editor` 정합·개연 통합 검수 → 수정 → `humanizer` 휴머나이즈 윤문 → 최종).
 
-에이전트 팀(`TeamCreate`)으로 구성하고, 산출물은 `_workspace/` 파일로 주고받는다. 모든 에이전트 호출은 `model: "opus"`.
+에이전트 팀(`TeamCreate`)으로 구성하고, 산출물은 `_workspace/` 파일로 주고받는다.
+
+### 모델 분배 (Opus / Sonnet) — 집필 보조는 Sonnet, 설계·비평은 Opus
+> 원칙: **소설 집필의 기본 모델은 Sonnet, 중요한 설계·비평·대수정은 Opus.** 회차를 계속 쓰고 고치는 연재 작업에서는 Sonnet을 메인으로(빠르고 비용 효율), Opus를 고차 판단용으로 쓰는 조합이 가장 효율적이다(대략 Sonnet 60~70% / Opus 30~40%). 각 에이전트 정의 파일의 `model:` frontmatter가 기본값이며, 아래는 그 분배 근거다.
+
+- **Opus (고차 설계·구조·캐릭터 판단·비평):** `story-architect`(세계관·구조·복선 설계), `plot-architect`(전체 플롯·장기 떡밥·후킹·절단면), `character-designer`(인물 동기·대사 톤·미세 어긋남), `critic`(작품성 비평 = 편집장/스토리 닥터).
+- **Sonnet (집필·윤문·검수·분석·웃음 생산 — 반복 실무):** `prose-writer`(회차 초안·대량 생산), `humanizer`(문체 윤문·대량 수정), `scene-director`(장면 설계도 실무), `continuity-editor`(회차별 정합 검수 반복), `source-miner`(대용량 카톡 분석), `humor-designer`(웃음 라인 생산·변주).
+- **Opus 오버라이드(호출 시 `model: "opus"` 지정):** 기본 Sonnet인 에이전트라도 **(a) 결정적 회차의 장면 설계(scene-director), (b) 캐논·구조가 걸린 중대 정합 검수(continuity-editor), (c) 웃음 엔진 초기 설계나 핵심 러닝 개그 결정화(humor-designer)** 처럼 고차 판단이 필요하면 그 호출에 한해 Opus로 올린다. 반대로 단순·반복 작업은 기본 모델을 그대로 쓴다. 모델은 작업 성격에 맞춰 호출 단위로 조정한다.
 
 ## 에이전트 구성 (10)
 - **상시 코어(7):** story-architect, character-designer, plot-architect, scene-director, prose-writer, continuity-editor, humanizer.
@@ -58,14 +65,15 @@ description: >
 
 ## Phase 2: 집필 (장면 설계 + 생성-검증 루프)
 **실행 모드: 장면 설계 → 생성-검증**
-회차 단위로 반복한다(웹소설 연재):
+회차 단위로 반복한다(웹소설 연재).
+> ★**흡입력 운용 정본 = `_workspace/06_engagement_brief.md`.** 모든 회차는 이 브리프의 **5박자 구조**(현장 소동→한율 오판/문화충격→숫자 이상징후(손 멈춤)→작은 해결/패배(사이다·관계·추리 보상 중 ≥1)→다음화 잔가시), **회차 체크리스트 6항**, **엔딩 5타입 순환**(사이다·코미디·서스펜스·감동·반전, 한 타입 반복 금지), **사건 A/B/C/D형**, **금지 항목**(물음표만 쌓기·회계 설명 과잉·회장 오독 단조로움·저녁 사무소 엔딩 반복·한율 수동화)을 준수한다. scene-director·prose-writer·continuity-editor·humanizer 전 단계의 공통 기준이다. 한 줄 검수: "한율은 오늘도 숫자 하나를 바로잡아 사람 하나를 구하지만, 그 정확함 때문에 더 깊이 엮이고 위장한 자신도 조금씩 드러난다."
 1. plot-architect의 해당 회차 시놉시스를 확인한다.
 2. scene-director가 해당 회차의 장면 설계도 작성 → `_workspace/scene_plans/scene_ep_{n}.md`
    - 일상·감정 회차도 장소/동선/정서적 압박(오해·서운함·말 못 한 마음)이 약하면 호출한다.
 3. prose-writer가 회차를 집필 → `_workspace/chapters/ep_{n}_{제목}.md`
-   - 반드시 `03_plot_structure.md`, `02_characters_sheet.md`, `00_source_voice_patterns.md`(말투 자산), `05_humor_lines.md`(웃음·드립·명대사), `scene_ep_{n}.md`, 이전 회차를 함께 참고한다.
+   - 반드시 `03_plot_structure.md`, `02_characters_sheet.md`, `00_source_voice_patterns.md`(말투 자산), `05_humor_lines.md`(웃음·드립·명대사), **`06_engagement_brief.md`(★5박자·체크리스트·엔딩 순환·한율/조연 운용)**, `07_author_voice.md`(작가 페르소나·과용어 워치리스트), `scene_ep_{n}.md`, 이전 회차를 함께 참고한다.
    - 결정적 웃음 회차거나 러닝 개그 변주·콜백이 필요한데 `05_humor_lines.md`에 마땅한 라인이 없으면 humor-designer에 해당 회차 라인을 요청한다.
-4. continuity-editor가 정합·개연 통합 검수 → `_workspace/reviews/review_ep_{n}.md` (설정·시점·떡밥 콜백·문체·한국어 화계/호칭 + 감정선·관계 변화 개연성).
+4. continuity-editor가 정합·개연 통합 검수 → `_workspace/reviews/review_ep_{n}.md` (설정·시점·떡밥 콜백·문체·한국어 화계/호칭 + 감정선·관계 변화 개연성 + **`06_engagement_brief.md` 흡입력 검수: 체크리스트 6항(표면사건·바로잡는 숫자·손해본 사람·들킬 뻔한 지점·온기·다음화 질문) 충족, 엔딩 타입이 직전 회차들과 안 겹치는지, 금지 항목(물음표만 쌓기·회계 설명 과잉·회장 오독 단조·저녁 사무소 엔딩 반복·한율 수동화) 위반 여부**).
 5. 치명/중대 지적이 있으면 prose-writer가 수정(최대 1회 재시도). 구조 문제면 plot-architect, 장면 문제면 scene-director에 되돌린다. 재실패 시 지적을 남긴 채 사용자에게 보고.
 6. humanizer가 휴머나이즈 윤문: 정합이 끝난 회차를 'AI 티 제거 + 작가 페르소나' 기준으로 다듬는다 → `_workspace/07_author_voice.md`·`_workspace/reviews/humanize_ep_{n}.md` 갱신, 본문에 표현·리듬 라인 에디트 적용(사실·구조 불변).
 7. 통과한 회차는 사용자 지정 출력 경로(기본 `manuscript/`)로 복사한다. `_workspace/`의 중간본은 보존.
@@ -77,7 +85,7 @@ description: >
 
 ## 데이터 전달 프로토콜
 - **태스크 기반**(조율) + **파일 기반**(산출물) + **메시지 기반**(실시간 소통) 조합.
-- 파일명 컨벤션: `_workspace/{단계번호}_{산출물}.md`, 소재는 `_workspace/00_source_*.md`, 웃음·드립·명대사는 `_workspace/05_humor_lines.md`, 회차는 `_workspace/chapters/ep_{n}_*.md`, 장면 설계도는 `_workspace/scene_plans/scene_ep_{n}.md`, 검수는 `_workspace/reviews/*.md`.
+- 파일명 컨벤션: `_workspace/{단계번호}_{산출물}.md`, 소재는 `_workspace/00_source_*.md`, 웃음·드립·명대사는 `_workspace/05_humor_lines.md`, **흡입력 운용 정본은 `_workspace/06_engagement_brief.md`, 작가 페르소나·과용어 워치리스트는 `_workspace/07_author_voice.md`**, 회차는 `_workspace/chapters/ep_{n}_*.md`, 장면 설계도는 `_workspace/scene_plans/scene_ep_{n}.md`, 검수는 `_workspace/reviews/*.md`.
 - 최종 원고만 `manuscript/`에 출력. 중간 산출물은 삭제하지 않는다.
 - **반환 규약(공통):** 모든 전문 에이전트는 산출물을 약속된 파일에 쓴 뒤, **최종 응답 메시지에 핵심 요약(산출·발견·변경 + 파일 경로)을 함께 반환**한다. 에이전트가 '완료'만 반환하면 오케스트레이터는 해당 산출 파일을 읽어 결과를 확인한다 — 빈 회신으로 결과가 유실되지 않게.
 

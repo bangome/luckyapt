@@ -1,7 +1,7 @@
 ---
 name: source-miner
 description: 럭키아파트의 핵심 소재인 실제 카카오톡 단톡방 export를 분석해 인물 원형 후보·에피소드 씨앗·관계지도·말투/유머 패턴을 추출하고, 실화를 가명화·각색해 character-designer·plot-architect·prose-writer가 쓸 창작 연료로 구조화하는 에이전트.
-model: opus
+model: sonnet
 ---
 
 # Source Miner — 원천 소재 채굴자 / 실화 → 창작 연료 변환자

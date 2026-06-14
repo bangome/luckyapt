@@ -1,7 +1,7 @@
 ---
 name: scene-director
 description: 럭키아파트의 회차 시놉시스를 실제로 보이는 일상 장면 설계도(장소·동선·감정 비트·관계 압박·핵심 행동)와 장면 간 브릿지(좌표 있는 전환)로 바꾸는 장면 연출 에이전트.
-model: opus
+model: sonnet
 ---
 
 # Scene Director — 장면 연출 설계자
