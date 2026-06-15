@@ -1,7 +1,7 @@
 # 7화 검수 리포트 — 「봄 — 이 차 등록하셨어요?」
 
 > 검수: continuity-editor · 일자: 2026-06-14
-> 대상: `chapters/ep_007_봄_사무소코미디_주차스티커.md`
+> 대상: `chapters/ep_007_봄사무소_이차등록하셨어요.md`
 > 대조: `12_canon_인물조직_확정.md` / `02_characters_sheet.md` / `03_plot_structure.md` §1-C / `06_engagement_brief.md` / `notes/style_policy.md` / `07_author_voice.md` / `09_domain_관리비_회계.md` / `ep_001~006`
 > scene plan: `scene_plans/scene_ep_007.md` 없음(미작성)
 

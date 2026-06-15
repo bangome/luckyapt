@@ -1,7 +1,7 @@
 # 6화 검수 리포트 — 「봄 — 음식물카드 보증금은 누가 내나요」
 
 > 검수: continuity-editor · 일자: 2026-06-14
-> 대상: `chapters/ep_006_봄_사무소코미디_음식물카드.md`
+> 대상: `chapters/ep_006_봄사무소_음식물카드보증금.md`
 > 정본 기준: `12_canon_인물조직_확정.md` / `02_characters_sheet.md` / `03_plot_structure.md` §1-C / `06_engagement_brief.md` / `notes/style_policy.md` §2 / `ep_001~005` / `09_domain_관리비_회계.md` / `08_domain_apartment_mgmt.md`
 > scene plan: `scene_plans/scene_ep_006.md` 없음(미작성)
 
