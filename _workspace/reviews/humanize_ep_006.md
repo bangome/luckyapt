@@ -1,6 +1,6 @@
 # humanize_ep_006 — 6화 휴머나이즈 윤문 리포트
 
-대상: `_workspace/chapters/ep_006_봄_사무소코미디_음식물카드.md`
+대상: `_workspace/chapters/ep_006_봄사무소_음식물카드보증금.md`
 기준: `07_author_voice.md` 작가 페르소나 + 1~5화 확립 필체 + `notes/style_policy.md`
 원칙: 사실·구조·대사 의미·5박자·엔딩 타입(코미디) **불변**, 표현·리듬·어휘만.
 

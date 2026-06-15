@@ -1,7 +1,7 @@
 # 8화 검수 리포트 — 「봄 — 연락처가 바뀌었어요」
 
 > 검수: continuity-editor · 일자: 2026-06-15
-> 대상: `chapters/ep_008_봄_사무소코미디_입주자카드.md`
+> 대상: `chapters/ep_008_봄사무소_연락처가바뀌었어요.md`
 > 대조: `12_canon_인물조직_확정.md` / `02_characters_sheet.md` / `03_plot_structure.md` §1-C / `06_engagement_brief.md` / `notes/style_policy.md` / `07_author_voice.md` / `ep_006·007` (B형 묶음 연속)
 > scene plan: `scene_plans/scene_ep_008.md` 없음(미작성)
 > 이전 리뷰: `review_ep_007.md` (중대 2건·경미 5건)
