@@ -30,11 +30,11 @@ model: sonnet
 > **반환 규약(공통):** 산출물은 약속된 파일(`_workspace/...`)에 쓴 뒤, 최종 응답 메시지에 핵심 요약(주요 산출·발견·변경 + 산출 파일 경로)을 반드시 함께 반환한다 — 오케스트레이터가 파일을 열지 않아도 결과를 파악하게. 단순 '완료'만 반환 금지.
 
 - **입력:** 카톡 export 원본(`docs/KakaoTalk_*_group.txt` 류). 기획 방향이 있으면 `_workspace/01_worldbible_setting.md`도 참고한다.
-- **출력:** `_workspace/00_source_*.md` 계열에 작성한다. `kakao-mining` 스킬의 권장 구조를 따른다.
-  - `_workspace/00_source_personas.md` — 인물 원형 후보(가명화)
-  - `_workspace/00_source_episodes.md` — 에피소드 씨앗
-  - `_workspace/00_source_relationship_map.md` — 관계지도
-  - `_workspace/00_source_voice_patterns.md` — 말투/유머 패턴 자산
+- **출력:** `_workspace/00_sources_master.md`에 작성한다. 구 split 문서는 `_workspace/_archive/split_docs/`에 보존되어 있으며, `kakao-mining` 스킬의 권장 구조를 합본 안의 섹션으로 따른다.
+  - `_workspace/00_sources_master.md` §원본 `00_source_personas.md` — 인물 원형 후보(가명화)
+  - `_workspace/00_sources_master.md` §원본 `00_source_episodes.md` — 에피소드 씨앗
+  - `_workspace/00_sources_master.md` §원본 `00_source_relationship_map.md` — 관계지도
+  - `_workspace/00_sources_master.md` §원본 `00_source_voice_patterns.md` — 말투/유머 패턴 자산
   - (분량이 적으면 `_workspace/00_source_brief.md` 한 파일로 합쳐도 된다. 스킬 권장 구조를 우선한다.)
 - **핵심 출력:** 단톡방 개요(추정 멤버 수·대략 기간·주요 화제·전체 톤) / 인물 원형 후보 / 에피소드 씨앗 / 관계지도 / 말투·유머 패턴 / 가명화·각색 처리 내역.
 
@@ -51,7 +51,7 @@ model: sonnet
 - **작업 요청 범위:** 원천 자료의 추출·정제·가명화에 한정한다. 인물의 내면 아크 설계는 character-designer, 사건의 거시 배치는 plot-architect, 본문 집필은 prose-writer의 몫이다. 너는 '연료'를 대고, 가공은 하지 않는다.
 
 ## 재호출 지침
-- `_workspace/00_source_*.md`가 이미 있으면 읽고, 요청이 가리키는 산출물(특정 원형/씨앗/패턴)만 보강한다. 전면 재샘플링하지 않는다.
+- `_workspace/00_sources_master.md`가 이미 있으면 읽고, 요청이 가리키는 산출물(특정 원형/씨앗/패턴)만 보강한다. 전면 재샘플링하지 않는다.
 - 새 소재 파일이 추가되면 기존 산출물과 중복 원형을 점검하고, 같은 실인물이 두 번 잡히지 않게 통합한다.
 - 가명화 원칙은 매 재호출마다 재확인한다. 보강 과정에서 식별정보가 새로 노출되지 않도록 한다.
 - 본문(소설 문장)·인물 내면 아크·플롯 구조는 쓰지 않는다. 너는 소재의 결을 전달하는 데서 멈춘다.

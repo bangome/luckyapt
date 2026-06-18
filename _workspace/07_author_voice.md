@@ -87,7 +87,7 @@
 | **이현우** | 공시생 막내 말투 (5화 미등장) | — |
 
 > 말투 상세·웃음 문법·러닝 개그 번호는 `05_humor_lines.md` 참조.
-> 단톡방 원천 말투 패턴은 `00_source_voice_patterns.md` 참조.
+> 단톡방 원천 말투 패턴은 `00_sources_master.md` §원본 `00_source_voice_patterns.md` 참조.
 
 ---
 

@@ -1,7 +1,0 @@
-{
-  "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"cd /c/aegis_dx/reference/luckyapt && F=\\\"docs/KakaoTalk_20260610_1143_33_907_group.txt\\\" && for kw in \\\"진상\\\" \\\"고양이\\\" \\\"누수\\\" \\\"층간\\\" \\\"택배\\\" \\\"경비\\\"; do echo \\\"=========== $kw ===========\\\"; g...",
-  "error": "Exit code 1\n=========== 진상 ===========\nTraceback (most recent call last):\r\n  File \"<string>\", line 1, in <module>\r\nUnicodeEncodeError: 'utf-8' codec can't encode character '\\udce2' in position 6: surrogates not allowed\r\n=========== 고양이 ===========\nTraceback (most recent call last):\r\n  File \"<string>\", line 1, in <module>\r\nUnicodeEncodeError: 'utf-8' codec can't encode character '\\udce2' in position 6: surrogates not allowed\r\n=========== 누수 ===========\nTraceback (most recent call last):\r\n  File \"...",
-  "timestamp": "2026-06-10T06:39:49.111Z",
-  "retry_count": 1
-}

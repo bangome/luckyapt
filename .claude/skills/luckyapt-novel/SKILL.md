@@ -54,7 +54,7 @@ description: >
 **실행 모드: 에이전트 팀 (파이프라인)**
 1. `TeamCreate`로 팀 구성: source-miner, story-architect, character-designer, plot-architect.
 2. `TaskCreate`로 의존성 있는 작업 등록:
-   - T0: 카톡 소재 분석 (source-miner) → `_workspace/00_source_personas.md`, `00_source_episodes.md`, `00_source_relationship_map.md`, `00_source_voice_patterns.md`
+   - T0: 카톡 소재 분석 (source-miner) → `_workspace/00_sources_master.md`
    - T1: 세계관 바이블 + **시점·형식 결정 옵션** (story-architect, T0 의존) → `_workspace/01_worldbible_setting.md`
    - T2: 인물 시트·관계도·캐릭터 아크 (character-designer, T0·T1 의존) → `_workspace/02_characters_sheet.md`
    - T3: 플롯·회차 구성 (plot-architect, T2 의존) → `_workspace/03_plot_structure.md`
@@ -71,7 +71,7 @@ description: >
 2. scene-director가 해당 회차의 장면 설계도 작성 → `_workspace/scene_plans/scene_ep_{n}.md`
    - 일상·감정 회차도 장소/동선/정서적 압박(오해·서운함·말 못 한 마음)이 약하면 호출한다.
 3. prose-writer가 회차를 집필 → `_workspace/chapters/ep_{n}_{제목}.md`
-   - 반드시 `03_plot_structure.md`, `02_characters_sheet.md`, `00_source_voice_patterns.md`(말투 자산), `05_humor_lines.md`(웃음·드립·명대사), **`06_engagement_brief.md`(★5박자·체크리스트·엔딩 순환·한율/조연 운용)**, `07_author_voice.md`(작가 페르소나·과용어 워치리스트), `scene_ep_{n}.md`, 이전 회차를 함께 참고한다.
+   - 반드시 `03_plot_structure.md`, `02_characters_sheet.md`, `00_sources_master.md` §원본 `00_source_voice_patterns.md`(말투 자산), `05_humor_lines.md`(웃음·드립·명대사), **`06_engagement_brief.md`(★5박자·체크리스트·엔딩 순환·한율/조연 운용)**, `07_author_voice.md`(작가 페르소나·과용어 워치리스트), `scene_ep_{n}.md`, 이전 회차를 함께 참고한다.
    - 결정적 웃음 회차거나 러닝 개그 변주·콜백이 필요한데 `05_humor_lines.md`에 마땅한 라인이 없으면 humor-designer에 해당 회차 라인을 요청한다.
 4. continuity-editor가 정합·개연 통합 검수 → `_workspace/reviews/review_ep_{n}.md` (설정·시점·떡밥 콜백·문체·한국어 화계/호칭 + 감정선·관계 변화 개연성 + **`06_engagement_brief.md` 흡입력 검수: 체크리스트 6항(표면사건·바로잡는 숫자·손해본 사람·들킬 뻔한 지점·온기·다음화 질문) 충족, 엔딩 타입이 직전 회차들과 안 겹치는지, 금지 항목(물음표만 쌓기·회계 설명 과잉·회장 오독 단조·저녁 사무소 엔딩 반복·한율 수동화) 위반 여부**).
 5. 치명/중대 지적이 있으면 prose-writer가 수정(최대 1회 재시도). 구조 문제면 plot-architect, 장면 문제면 scene-director에 되돌린다. 재실패 시 지적을 남긴 채 사용자에게 보고.
@@ -85,7 +85,7 @@ description: >
 
 ## 데이터 전달 프로토콜
 - **태스크 기반**(조율) + **파일 기반**(산출물) + **메시지 기반**(실시간 소통) 조합.
-- 파일명 컨벤션: `_workspace/{단계번호}_{산출물}.md`, 소재는 `_workspace/00_source_*.md`, 웃음·드립·명대사는 `_workspace/05_humor_lines.md`, **흡입력 운용 정본은 `_workspace/06_engagement_brief.md`, 작가 페르소나·과용어 워치리스트는 `_workspace/07_author_voice.md`**, 회차는 `_workspace/chapters/ep_{n}_*.md`, 장면 설계도는 `_workspace/scene_plans/scene_ep_{n}.md`, 검수는 `_workspace/reviews/*.md`.
+- 파일명 컨벤션: `_workspace/{단계번호}_{산출물}.md`, 소재는 `_workspace/00_sources_master.md`, 웃음·드립·명대사는 `_workspace/05_humor_lines.md`, **흡입력 운용 정본은 `_workspace/06_engagement_brief.md`, 작가 페르소나·과용어 워치리스트는 `_workspace/07_author_voice.md`**, 회차는 `_workspace/chapters/ep_{n}_*.md`, 장면 설계도는 `_workspace/scene_plans/scene_ep_{n}.md`, 검수는 `_workspace/reviews/*.md`.
 - 최종 원고만 `manuscript/`에 출력. 중간 산출물은 삭제하지 않는다.
 - **반환 규약(공통):** 모든 전문 에이전트는 산출물을 약속된 파일에 쓴 뒤, **최종 응답 메시지에 핵심 요약(산출·발견·변경 + 파일 경로)을 함께 반환**한다. 에이전트가 '완료'만 반환하면 오케스트레이터는 해당 산출 파일을 읽어 결과를 확인한다 — 빈 회신으로 결과가 유실되지 않게.
 
@@ -100,8 +100,8 @@ description: >
 
 ## 테스트 시나리오
 - **정상 흐름:** "럭키아파트 기획 만들어줘" → Phase 0(초기 판별) → Phase 1(소재 분석 → 세계관·시점 옵션 제시·결정 → 인물 → 플롯) → 기획 요약 보고 → (승인) → Phase 2 scene plan·1화 집필·검수·윤문·출력.
-- **소재 활용 흐름:** "단톡방에서 라식 얘기 에피소드 살려줘" → source-miner의 `00_source_episodes.md`에서 해당 씨앗 확인 → plot-architect 회차 배치 → scene-director 장면화 → prose-writer 집필.
+- **소재 활용 흐름:** "단톡방에서 라식 얘기 에피소드 살려줘" → source-miner의 `00_sources_master.md` §원본 `00_source_episodes.md`에서 해당 씨앗 확인 → plot-architect 회차 배치 → scene-director 장면화 → prose-writer 집필.
 - **에러 흐름:** "5화 써줘"인데 플롯에 5화 시놉시스가 없음 → prose-writer가 plot-architect에 구체화 요청 → 보강 → scene-director 장면 설계 → 집필. 재시도 실패 시 "5화 구성이 비어 있어 집필 불가, 플롯 보강 필요" 보고.
 - **후속 흐름:** "3화 톤이 너무 가라앉았어, 더 웃기게" → Phase 0가 부분 재실행 판별 → humor-designer가 3화용 펀치라인·드립 보강(`05_humor_lines.md`) → prose-writer가 해당 라인 반영 재집필 → continuity-editor 재검수 → humanizer 윤문.
-- **웃음 설계 흐름:** "단톡방 러닝 개그 하나 만들어줘" 또는 "○○ 캐릭터 웃음 포인트 잡아줘" → humor-designer 호출 → `00_source_voice_patterns.md`·`02_characters_sheet.md` 기반으로 인물 웃음 문법·러닝 개그·콜백 설계 → `05_humor_lines.md` 갱신 → prose-writer가 해당 회차에 심음.
+- **웃음 설계 흐름:** "단톡방 러닝 개그 하나 만들어줘" 또는 "○○ 캐릭터 웃음 포인트 잡아줘" → humor-designer 호출 → `00_sources_master.md` §원본 `00_source_voice_patterns.md`·`02_characters_sheet.md` 기반으로 인물 웃음 문법·러닝 개그·콜백 설계 → `05_humor_lines.md` 갱신 → prose-writer가 해당 회차에 심음.
 - **비평 흐름:** "1~10화 재미있는지, 캐릭터 매력·따뜻함·전개 속도 봐줘" → critic 호출(범위=ep_001~010) → `critique` rubric으로 차원별 평가 → `_workspace/reviews/critique_ep_001_010.md` 산출 → 강점·치명/권장 약점·위임 요약 보고. 개선 항목은 담당 에이전트로 후속 연결.

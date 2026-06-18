@@ -53,7 +53,7 @@ grep -cE '소장|입주민|회식|술' $F                 # 화제 밀도 측정
 
 ## 3. 추출 산출물 4종 + 템플릿
 
-### 3-1. 인물 원형 후보 — `_workspace/00_source_personas.md`
+### 3-1. 인물 원형 후보 — `_workspace/00_sources_master.md` §원본 `00_source_personas.md`
 ```markdown
 # 럭키아파트 — 인물 원형 후보 (가명화)
 
@@ -77,7 +77,7 @@ grep -cE '소장|입주민|회식|술' $F                 # 화제 밀도 측정
 - 어느 실인물들을 한 캐릭터로 묶으면 좋은가 / 왜
 ```
 
-### 3-2. 에피소드 씨앗 — `_workspace/00_source_episodes.md`
+### 3-2. 에피소드 씨앗 — `_workspace/00_sources_master.md` §원본 `00_source_episodes.md`
 ```markdown
 # 럭키아파트 — 에피소드 씨앗
 
@@ -90,7 +90,7 @@ grep -cE '소장|입주민|회식|술' $F                 # 화제 밀도 측정
 ```
 씨앗은 정서별로 균형 있게 모은다(웃긴 것만, 슬픈 것만 X).
 
-### 3-3. 관계지도 — `_workspace/00_source_relationship_map.md`
+### 3-3. 관계지도 — `_workspace/00_sources_master.md` §원본 `00_source_relationship_map.md`
 ```markdown
 # 럭키아파트 — 관계지도
 
@@ -102,7 +102,7 @@ grep -cE '소장|입주민|회식|술' $F                 # 화제 밀도 측정
 - 반복 밈·놀이 (예: 특정 인물이 '단톡방 한정 아이돌'이 되는 놀림 문화)
 ```
 
-### 3-4. 말투/유머 패턴 — `_workspace/00_source_voice_patterns.md`
+### 3-4. 말투/유머 패턴 — `_workspace/00_sources_master.md` §원본 `00_source_voice_patterns.md`
 ```markdown
 # 럭키아파트 — 말투/유머 패턴 자산 (prose-writer용)
 
