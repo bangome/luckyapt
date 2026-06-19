@@ -24,9 +24,12 @@ description: >
 - **소재·고증:** 실제 '경리들모임' 단톡방 export(`docs/`)에서 경리 인물·말투·에피소드 채굴(source-miner). 관리사무소·관리비·입주자단체 실무 고증 정본 = `_workspace/08~11`.
 - **시점·형식:** 밀착 3인칭 주인공 + 후반 한정 멀티 POV(확정). 아파트 주민은 앙상블 조연.
 
-## 실행 모드: 하이브리드
-- **기획 단계** → 파이프라인 (소재 분석 → 세계관/시점 결정 → 인물/관계 아크 → 플롯). source-miner는 기획 초입에 1회 필수로 돈다.
-- **집필 단계** → 장면 설계 + 생성-검증 (`scene-director` 장면 설계 → `prose-writer` 집필 → `continuity-editor` 정합·개연 통합 검수 → 수정 → `humanizer` 휴머나이즈 윤문 → 최종).
+## 실행 모드: 하이브리드 (★사람·생활·유머 중심 — '착한데 심심' 경계)
+> ★**작품 정체성(2026-06-19 작가 확정·불변):** 행운아파트의 본체는 트릭·미스터리가 아니라 **사람·생활·유머·정·감동**이다(재미 절반 + 힐링 절반). 독자가 기억하는 건 '운영비 비리'가 아니라 **고만옥 옥수수·상경 수다·정봉구 삶은계란·이방 한정 아이돌** 같은 사람·웃음 장면이다. 따라서 plot·scene·continuity 비중이 높던 rubycarrier형(트릭·복선·미스터리) 구조가 아니라, **Plot·Prose·Humor·Humanizer가 집필 엔진**이고 나머지는 필요할 때만 부른다. ★최대 위험 = '힐링물'이 아니라 **"착한데 심심한 소설"** — 이를 막는 핵심 레인이 humor-designer다(메모리 정합: hook-via-people-not-mystery / tone-warm-character-first / trim-narration-keep-dialogue).
+- **기획 단계** → 파이프라인 (소재 분석 → 세계관/시점 결정 → 인물/관계 아크 → 플롯 → 웃음 엔진). 초기 1회 위주. source-miner는 기획 초입에 1회 필수.
+- **집필 단계(기본 루프)** → plot 시놉시스 → **prose-writer 집필**(`05_humor_lines.md` 웃음 자산 적극 반영) → **continuity-editor** 정합·개연 검수 → **humanizer** 생활감·사람냄새·유머·필체 윤문 → 최종. 
+  - ★**scene-director는 기본 루프에서 빠진다.** 일상·대화·생활 회차는 prose-writer가 시놉시스에서 바로 쓴다. 장면 설계는 **복잡한 사건·멀티 동선·대형 set-piece(주민설명회·정전 대란 등) 회차에만** 필요 호출 — 평범한 회차에 부르면 씬 목적·긴장·전환을 과설계해 생활감을 죽인다.
+  - ★**humor-designer는 적극 호출.** 코미디·러닝개그·드립·티키타카 회차마다 `05_humor_lines.md`에 라인을 대거나 변주한다. (humanizer보다 자주 개입할 수 있음.)
 
 에이전트 팀(`TeamCreate`)으로 구성하고, 산출물은 `_workspace/` 파일로 주고받는다.
 
@@ -37,9 +40,16 @@ description: >
 - **Sonnet (집필·윤문·검수·분석·웃음 생산 — 반복 실무):** `prose-writer`(회차 초안·대량 생산), `humanizer`(문체 윤문·대량 수정), `scene-director`(장면 설계도 실무), `continuity-editor`(회차별 정합 검수 반복), `source-miner`(대용량 카톡 분석), `humor-designer`(웃음 라인 생산·변주).
 - **Opus 오버라이드(호출 시 `model: "opus"` 지정):** 기본 Sonnet인 에이전트라도 **(a) 결정적 회차의 장면 설계(scene-director), (b) 캐논·구조가 걸린 중대 정합 검수(continuity-editor), (c) 웃음 엔진 초기 설계나 핵심 러닝 개그 결정화(humor-designer)** 처럼 고차 판단이 필요하면 그 호출에 한해 Opus로 올린다. 반대로 단순·반복 작업은 기본 모델을 그대로 쓴다. 모델은 작업 성격에 맞춰 호출 단위로 조정한다.
 
-## 에이전트 구성 (10)
-- **상시 코어(7):** story-architect, character-designer, plot-architect, scene-director, prose-writer, continuity-editor, humanizer.
-- **필요 호출(3):** source-miner(소재 분석 — 프로젝트 초기 1회 필수, 이후 소재 재분석 요청 시), humor-designer(웃음·드립·명대사 설계 — 인물 확정 후 1회 + 결정적 웃음 회차 요청 시), critic(작품성 비평 — 평가 요청 시).
+## 에이전트 구성 (10) — ★상시 4 / 필요 6 (2026-06-19 작가 확정 재편)
+- **상시 코어(4):** **plot-architect**(에피소드 구조·복선·시즌 설계), **prose-writer**(본문 초고), **humanizer**(★강화 — 생활감·사람냄새·감정·유머·작가 필체), **continuity-editor**(설정 충돌·캐릭터 붕괴·정합/개연).
+- **필요 호출(6):**
+  - **humor-designer** — ★적극 활용. 코미디·러닝개그·드립·명대사. **'착한데 심심' 방지의 핵심**이라 humanizer보다 자주 개입할 수 있다. (상추 할아버지·민원 44건 세대·이방 한정 아이돌·잡수입 250원 같은 러닝개그가 여기서 나온다.)
+  - **critic** — 작품성 비평(평가 요청 시).
+  - **character-designer** — 새 인물 투입·인물 보완 시에만(매 화 불필요).
+  - **scene-director** — ★강등. 복잡한 사건·멀티 동선·대형 set-piece 회차에만. 일상/대화 회차엔 부르지 않는다(씬 목적·긴장·전환 과설계가 생활감을 죽임).
+  - **story-architect** — plot-architect와 상당 부분 겹침. 시즌 플롯이 이미 있으면 매 화 불필요 — 큰 설정·구조·시점 변경 시에만.
+  - **source-miner** — 소재 분석. 초기 1회 필수, 이후 재분석 요청 시.
+- **★재편 근거(작가 확정):** 행운아파트는 사람/생활/유머/정·감동이 핵심이라, plot·scene·continuity 비중이 높던 기존(rubycarrier형) 구조에서 **scene-director·story-architect·character-designer를 필요 호출로 내리고 humor-designer를 적극 활용**한다. 가장 만족스러웠던 장면들도 '잘 짜인 플롯'이 아니라 '사람들이 웃긴 장면'이었다.
 - rubycarrier 대비 제거: research-specialist(범죄 고증)·culture-researcher·logic-auditor. **논리/개연 검수는 continuity-editor가 정합과 함께 흡수**한다. quote-designer는 힐링/유머 장르에 맞춰 **humor-designer로 재정의**(명대사보다 재미·드립 중심)했다.
 
 ## Phase 0: 컨텍스트 확인 (항상 먼저)
@@ -63,16 +73,15 @@ description: >
 4. **시점·형식은 사용자 결정 사항이다.** story-architect가 옵션(1인칭/3인칭, 단일/군상극)을 제시하면 사용자에게 확인받은 뒤 인물·플롯을 확정한다.
 5. 산출물이 완료되면 기획안을 요약 보고하고 집필 진입 여부를 확인한다.
 
-## Phase 2: 집필 (장면 설계 + 생성-검증 루프)
-**실행 모드: 장면 설계 → 생성-검증**
+## Phase 2: 집필 (생성-검증 루프 — ★Prose·Humor·Continuity·Humanizer 중심)
+**실행 모드(기본): plot 시놉시스 → prose-writer 집필(웃음 자산 반영) → continuity-editor 검수 → humanizer 윤문.** 장면 설계(scene-director)는 복잡한 회차에만 조건부로 앞에 끼운다.
 회차 단위로 반복한다(웹소설 연재).
 > ★**흡입력 운용 정본 = `_workspace/06_engagement_brief.md`.** 모든 회차는 이 브리프의 **5박자 구조**(현장 소동→한율 오판/문화충격→숫자 이상징후(손 멈춤)→작은 해결/패배(사이다·관계·추리 보상 중 ≥1)→다음화 잔가시), **회차 체크리스트 6항**, **엔딩 5타입 순환**(사이다·코미디·서스펜스·감동·반전, 한 타입 반복 금지), **사건 A/B/C/D형**, **금지 항목**(물음표만 쌓기·회계 설명 과잉·회장 오독 단조로움·저녁 사무소 엔딩 반복·한율 수동화)을 준수한다. scene-director·prose-writer·continuity-editor·humanizer 전 단계의 공통 기준이다. 한 줄 검수: "한율은 오늘도 숫자 하나를 바로잡아 사람 하나를 구하지만, 그 정확함 때문에 더 깊이 엮이고 위장한 자신도 조금씩 드러난다."
 1. plot-architect의 해당 회차 시놉시스를 확인한다.
-2. scene-director가 해당 회차의 장면 설계도 작성 → `_workspace/scene_plans/scene_ep_{n}.md`
-   - 일상·감정 회차도 장소/동선/정서적 압박(오해·서운함·말 못 한 마음)이 약하면 호출한다.
+2. ★**장면 설계는 조건부.** 복잡한 사건·멀티 동선·대형 set-piece(주민설명회·정전·대형 민원 충돌 등) 회차만 scene-director 호출 → `_workspace/scene_plans/scene_ep_{n}.md`. **일상·대화·생활 회차는 이 단계를 건너뛰고** prose-writer가 시놉시스에서 바로 쓴다(평범한 회차에 씬 설계를 끼우면 목적·긴장·전환을 과설계해 생활감을 죽인다).
 3. prose-writer가 회차를 집필 → `_workspace/chapters/ep_{n}_{제목}.md`
    - 반드시 `03_plot_structure.md`, `02_characters_sheet.md`, `00_sources_master.md` §원본 `00_source_voice_patterns.md`(말투 자산), `05_humor_lines.md`(웃음·드립·명대사), **`06_engagement_brief.md`(★5박자·체크리스트·엔딩 순환·한율/조연 운용)**, `07_author_voice.md`(작가 페르소나·과용어 워치리스트), `scene_ep_{n}.md`, 이전 회차를 함께 참고한다.
-   - 결정적 웃음 회차거나 러닝 개그 변주·콜백이 필요한데 `05_humor_lines.md`에 마땅한 라인이 없으면 humor-designer에 해당 회차 라인을 요청한다.
+   - ★코미디·러닝개그·드립·티키타카 회차에는 humor-designer를 **적극** 호출해 `05_humor_lines.md`에 라인을 대거나 변주한다('착한데 심심' 방지). 일상의 가벼운 유머는 prose-writer가 자산으로 직접 처리.
 4. continuity-editor가 정합·개연 통합 검수 → `_workspace/reviews/review_ep_{n}.md` (설정·시점·떡밥 콜백·문체·한국어 화계/호칭 + 감정선·관계 변화 개연성 + **`06_engagement_brief.md` 흡입력 검수: 체크리스트 6항(표면사건·바로잡는 숫자·손해본 사람·들킬 뻔한 지점·온기·다음화 질문) 충족, 엔딩 타입이 직전 회차들과 안 겹치는지, 금지 항목(물음표만 쌓기·회계 설명 과잉·회장 오독 단조·저녁 사무소 엔딩 반복·한율 수동화) 위반 여부**).
 5. 치명/중대 지적이 있으면 prose-writer가 수정(최대 1회 재시도). 구조 문제면 plot-architect, 장면 문제면 scene-director에 되돌린다. 재실패 시 지적을 남긴 채 사용자에게 보고.
 6. humanizer가 휴머나이즈 윤문: 정합이 끝난 회차를 'AI 티 제거 + 작가 페르소나' 기준으로 다듬는다 → `_workspace/07_author_voice.md`·`_workspace/reviews/humanize_ep_{n}.md` 갱신, 본문에 표현·리듬 라인 에디트 적용(사실·구조 불변).
@@ -80,7 +89,10 @@ description: >
 
 ## 에이전트 호출 원칙
 - **source-miner**는 프로젝트 초기 1회 필수(모든 인물·에피소드의 원천). 이후엔 새 소재 추가나 "소재 다시 분석" 요청 시에만 재호출.
-- **humor-designer**는 인물 확정 후 1회 호출해 웃음 엔진(인물별 웃음 문법·러닝 개그·명대사 토대)을 깔고, 이후엔 결정적 웃음 회차·러닝 개그 변주/콜백·"더 웃기게" 요청 시 호출한다. 매 회차 강제로 끼우지 않는다 — 일상 유머는 prose-writer가 `05_humor_lines.md` 자산으로 직접 처리하고, humor-designer는 설계가 필요한 지점에만 든다. critic이 "재미·유머 약하다"고 위임하면 호출된다.
+- **humor-designer**는 ★**적극 활용 레인**이다(행운아파트의 '착한데 심심' 방지 핵심). 인물 확정 후 웃음 엔진을 깐 뒤, 코미디·러닝개그·드립·티키타카 회차마다 라인을 대거나 변주한다 — humanizer보다 자주 개입할 수 있다. 일상의 가벼운 유머는 prose-writer가 `05_humor_lines.md` 자산으로 직접 처리하되, 회차가 밋밋하거나 러닝개그 콜백·"더 웃기게"가 필요하면 바로 부른다. critic이 "재미·유머 약하다"고 위임하면 호출된다.
+- **scene-director**는 ★기본 집필 루프에서 빠진다. 복잡한 사건·멀티 동선·대형 set-piece(주민설명회·정전 등) 회차에만 조건부 호출 — 일상/대화 회차엔 부르지 않는다(과설계가 생활감을 죽인다).
+- **story-architect**는 시즌 플롯·세계관이 이미 있으면 매 화 불필요(plot-architect와 겹침). 큰 설정·구조·시점 변경 시에만.
+- **character-designer**는 새 인물 투입·기존 인물 보완/관계 재설계 시에만. 매 화 불필요.
 - **critic**은 매 회차 검수 루프(continuity·humanizer)와 별개의 작품성 비평 레인이다. 집필 파이프라인에 상시 끼우지 않고, 사용자가 비평·평가·"재미있는지/따뜻한지/매력 충분한지" 등을 요청할 때만 호출한다. 비평 범위(부분/부/전체)를 받아 `_workspace/reviews/critique_{scope}.md`를 산출하고, 개선 항목을 담당 에이전트(character-designer·plot-architect·scene-director·prose-writer·humanizer 등)에 위임 표시한다. 범위가 크면 차원별/구간별로 분할 호출 후 종합한다(`model: "opus"`).
 
 ## 데이터 전달 프로토콜
@@ -92,11 +104,11 @@ description: >
 ## 에러 핸들링
 - 에이전트 실패 시 1회 재시도, 재실패하면 해당 산출물 없이 진행하고 보고서에 누락을 명시한다.
 - 설정·인물·플롯 간 상충 데이터는 삭제하지 않고 출처를 병기해 사용자 판단을 구한다.
-- 회차가 정서 묘사만 있고 사건·관계 진전이 약하면 prose-writer 문제가 아니라 scene-director 단계 누락 가능성을 먼저 점검한다.
+- 회차가 밋밋·심심하면(★'착한데 심심') scene-director부터 부르지 말 것 — 먼저 **humor-designer(웃음·러닝개그)·character-designer(인물 매력)**로 사람·웃음을 보강한다. 장면 설계 누락은 복잡한 사건·멀티 동선 회차에서만 원인으로 의심.
 - source-miner 산출물에 실명·식별정보가 남아 있으면 가명화·각색 후 사용한다(실화 → 허구 변환). 개인정보를 본문에 그대로 옮기지 않는다.
 
 ## 팀 크기
-기획 4~5명(source-miner·story-architect·character-designer·plot-architect + 권장 humor-designer). 집필 4명(scene-director·prose-writer·continuity-editor·humanizer) + 필요 시 humor-designer/critic. 한 세션에 한 팀만 활성화되므로, 기획 팀 완료 후 `TeamDelete` → 집필 팀 `TeamCreate`로 재구성한다. Phase 전환 시 산출물이 파일로 보존되어 연결이 끊기지 않는다.
+기획 4~5명(source-miner·story-architect·character-designer·plot-architect + 권장 humor-designer). **집필 기본 3~4명: prose-writer·continuity-editor·humanizer + (코미디 회차) humor-designer.** scene-director는 복잡한 회차에만, character-designer는 새 인물 때만 추가. Phase 전환 시 산출물이 파일로 보존되어 연결이 끊기지 않는다.
 
 ## 테스트 시나리오
 - **정상 흐름:** "럭키아파트 기획 만들어줘" → Phase 0(초기 판별) → Phase 1(소재 분석 → 세계관·시점 옵션 제시·결정 → 인물 → 플롯) → 기획 요약 보고 → (승인) → Phase 2 scene plan·1화 집필·검수·윤문·출력.
