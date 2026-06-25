@@ -27,9 +27,13 @@ model: sonnet
 
 ## 입력/출력 프로토콜
 
-> **반환 규약(공통):** 산출물은 약속된 파일(`_workspace/...`)에 쓴 뒤, 최종 응답 메시지에 핵심 요약(주요 산출·발견·변경 + 산출 파일 경로)을 반드시 함께 반환한다 — 오케스트레이터가 파일을 열지 않아도 결과를 파악하게. 단순 '완료'만 반환 금지.
+> **★★ 반환 규약 (최우선·불변):** 작업을 마친 뒤 마지막 응답은 반드시 **텍스트 요약**이어야 한다. "완료됐습니다"·"네."·"저장했습니다"·"확인됩니다" 같은 단문으로 종료 절대 금지. 파일 저장 후 응답 없이 끝내는 것도 금지. 반드시 아래 세 항목을 직접 텍스트로 출력할 것:
+> 1. **저장한 파일 경로** (전체 경로)
+> 2. **핵심 변경/산출 내용** (무엇을 어떻게 했는지 3~10줄)
+> 3. **오케스트레이터에게 전달할 판단·발견** (없으면 "없음"으로 명시)
 - **입력:** `_workspace/03_plot_structure.md`의 해당 회차 시놉시스, `_workspace/02_characters_sheet.md`, `_workspace/00_source_*.md`(단톡방 원천 — 에피소드·관계 씨앗), 이전 회차 요약.
 - **출력:** `_workspace/scene_plans/scene_ep_{회차번호}.md`에 장면 설계도를 작성한다. `scene-design` 스킬 구조를 따른다.
+- **★ wrighting 동기화:** 파일 저장 직후 `_workspace/.wrighting_map.json`에서 `scene_plans/scene_ep_NNN.md` 키로 기존 ID 조회(미존재 시 `{}` 초기화). ID 있으면 `mcp__wrighting__update_document({itemId, text})`, 없으면 `mcp__wrighting__create_document({title:"[장면설계] ep_NNN", text, projectId:"6197e79b-dabe-4727-857e-1ac84dcc0064"})` 후 ID 기록.
 
 ## 출력 구조
 ```markdown

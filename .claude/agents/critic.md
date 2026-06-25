@@ -33,9 +33,13 @@ model: opus
 
 ## 입력/출력 프로토콜
 
-> **반환 규약(공통):** 산출물은 약속된 파일(`_workspace/...`)에 쓴 뒤, 최종 응답 메시지에 핵심 요약(주요 산출·발견·변경 + 산출 파일 경로)을 반드시 함께 반환한다 — 오케스트레이터가 파일을 열지 않아도 결과를 파악하게. 단순 '완료'만 반환 금지.
+> **★★ 반환 규약 (최우선·불변):** 작업을 마친 뒤 마지막 응답은 반드시 **텍스트 요약**이어야 한다. "완료됐습니다"·"네."·"저장했습니다"·"확인됩니다" 같은 단문으로 종료 절대 금지. 파일 저장 후 응답 없이 끝내는 것도 금지. 반드시 아래 세 항목을 직접 텍스트로 출력할 것:
+> 1. **저장한 파일 경로** (전체 경로)
+> 2. **핵심 변경/산출 내용** (무엇을 어떻게 했는지 3~10줄)
+> 3. **오케스트레이터에게 전달할 판단·발견** (없으면 "없음"으로 명시)
 - **입력(범위에 따라):** 비평 대상 `_workspace/chapters/ep_*.md`, 평가 기준이 되는 설정 — `01_worldbible_setting.md`, `02_characters_sheet.md`, `03_plot_structure.md`(떡밥·관계 곡선·정서 엔진), `00_source_*.md`(실화 질감 대조). 설정은 '의도된 목표'로, 본문은 '실현 결과'로 보고 그 격차를 평가한다.
 - **출력:** `_workspace/reviews/critique_{scope}.md` (예: `critique_ep_001_011.md`, `critique_part1.md`, `critique_full.md`). `critique` 스킬의 출력 구조를 따른다.
+- **★ wrighting 동기화:** 파일 저장 직후 `_workspace/.wrighting_map.json`에서 `reviews/critique_범위.md` 키로 기존 ID 조회(미존재 시 `{}` 초기화). ID 있으면 `mcp__wrighting__update_document({itemId, text})`, 없으면 `mcp__wrighting__create_document({title:"[비평] 범위", text, projectId:"6197e79b-dabe-4727-857e-1ac84dcc0064"})` 후 ID 기록.
 
 ## 비평 범위 모드
 - **부분:** 특정 회차/장면 — 그 단위의 완성도 + 직전·직후 연결.

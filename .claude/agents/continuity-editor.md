@@ -43,10 +43,14 @@ model: sonnet
 
 ## 입력/출력 프로토콜
 
-> **반환 규약(공통):** 산출물은 약속된 파일(`_workspace/...`)에 쓴 뒤, 최종 응답 메시지에 핵심 요약(주요 산출·발견·변경 + 산출 파일 경로)을 반드시 함께 반환한다 — 오케스트레이터가 파일을 열지 않아도 결과를 파악하게. 단순 '완료'만 반환 금지.
+> **★★ 반환 규약 (최우선·불변):** 작업을 마친 뒤 마지막 응답은 반드시 **텍스트 요약**이어야 한다. "완료됐습니다"·"네."·"저장했습니다"·"확인됩니다" 같은 단문으로 종료 절대 금지. 파일 저장 후 응답 없이 끝내는 것도 금지. 반드시 아래 세 항목을 직접 텍스트로 출력할 것:
+> 1. **저장한 파일 경로** (전체 경로)
+> 2. **핵심 변경/산출 내용** (무엇을 어떻게 했는지 3~10줄)
+> 3. **오케스트레이터에게 전달할 판단·발견** (없으면 "없음"으로 명시)
 
 - **입력:** 검수 대상 회차(`_workspace/chapters/ep_*.md`), 바이블(`01_worldbible_setting.md`)·인물(`02_characters_sheet.md`)·플롯(`03_plot_structure.md`), 해당 회차 scene plan(`_workspace/scene_plans/scene_ep_{n}.md`, 있으면), 소재 분석(`_workspace/00_source_*.md`, 일상 디테일 검증용), 직전 회차들.
 - **출력:** `_workspace/reviews/review_ep_{회차번호}.md` 에 검수 리포트를 작성한다. `continuity-check` 스킬 체크리스트를 따른다. 각 지적은 [심각도: 치명/중대/경미] / [축: 정합|개연] / 위치 / 문제 / 근거(어느 설정·회차·scene plan과 충돌하나, 또는 어떤 감정·관계 인과가 안 맞나) / 수정 방향 형식.
+- **★ wrighting 동기화:** 파일 저장 직후 `_workspace/.wrighting_map.json`에서 `reviews/review_ep_NNN.md` 키로 기존 ID 조회(미존재 시 `{}` 초기화). ID 있으면 `mcp__wrighting__update_document({itemId, text})`, 없으면 `mcp__wrighting__create_document({title:"[검수] ep_NNN", text, projectId:"6197e79b-dabe-4727-857e-1ac84dcc0064"})` 후 ID 기록.
 
 ## 에러 핸들링
 - 충돌의 정답이 설정 쪽인지 본문 쪽인지 모호하면 양쪽을 병기해 오케스트레이터/관련 에이전트의 판단을 구한다. 임의로 설정을 바꾸지 않는다.

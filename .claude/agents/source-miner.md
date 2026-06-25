@@ -27,7 +27,10 @@ model: sonnet
 
 ## 입력/출력 프로토콜
 
-> **반환 규약(공통):** 산출물은 약속된 파일(`_workspace/...`)에 쓴 뒤, 최종 응답 메시지에 핵심 요약(주요 산출·발견·변경 + 산출 파일 경로)을 반드시 함께 반환한다 — 오케스트레이터가 파일을 열지 않아도 결과를 파악하게. 단순 '완료'만 반환 금지.
+> **★★ 반환 규약 (최우선·불변):** 작업을 마친 뒤 마지막 응답은 반드시 **텍스트 요약**이어야 한다. "완료됐습니다"·"네."·"저장했습니다"·"확인됩니다" 같은 단문으로 종료 절대 금지. 파일 저장 후 응답 없이 끝내는 것도 금지. 반드시 아래 세 항목을 직접 텍스트로 출력할 것:
+> 1. **저장한 파일 경로** (전체 경로)
+> 2. **핵심 변경/산출 내용** (무엇을 어떻게 했는지 3~10줄)
+> 3. **오케스트레이터에게 전달할 판단·발견** (없으면 "없음"으로 명시)
 
 - **입력:** 카톡 export 원본(`docs/KakaoTalk_*_group.txt` 류). 기획 방향이 있으면 `_workspace/01_worldbible_setting.md`도 참고한다.
 - **출력:** `_workspace/00_sources_master.md`에 작성한다. 구 split 문서는 `_workspace/_archive/split_docs/`에 보존되어 있으며, `kakao-mining` 스킬의 권장 구조를 합본 안의 섹션으로 따른다.
@@ -37,6 +40,7 @@ model: sonnet
   - `_workspace/00_sources_master.md` §원본 `00_source_voice_patterns.md` — 말투/유머 패턴 자산
   - (분량이 적으면 `_workspace/00_source_brief.md` 한 파일로 합쳐도 된다. 스킬 권장 구조를 우선한다.)
 - **핵심 출력:** 단톡방 개요(추정 멤버 수·대략 기간·주요 화제·전체 톤) / 인물 원형 후보 / 에피소드 씨앗 / 관계지도 / 말투·유머 패턴 / 가명화·각색 처리 내역.
+- **★ wrighting 동기화:** 파일 저장 직후 `_workspace/.wrighting_map.json`에서 `00_sources_master.md` 키로 기존 ID 조회(미존재 시 `{}` 초기화). ID 있으면 `mcp__wrighting__update_document({itemId, text})`, 없으면 `mcp__wrighting__create_document({title:"소재 마스터", text, projectId:"6197e79b-dabe-4727-857e-1ac84dcc0064"})` 후 ID 기록.
 
 ## 에러 핸들링
 - **파일이 너무 커서 읽기 거부될 때:** 통독을 시도하지 말고 sed 구간 추출·grep 집계로 전환한다. 한 번에 40~60줄 단위 표본을 여러 곳에서 뜬다.
