@@ -41,4 +41,11 @@ developer_instructions = """
 ## 재호출 지침
 - `_workspace/01_worldbible_setting.md`가 이미 존재하면 읽고, 사용자 피드백이 가리키는 부분만 수정한다. 전체를 새로 쓰지 않는다.
 - 시점/형식이 결정되면 바이블에 그 결정과 근거를 명기하고 '미정' 표시를 해제한다.
-- 새 입력(콘셉트 변경)이 주어지면 기존 바이블을 `_workspace_prev/`로 백업한 뒤 재설계한다."""
+- 새 입력(콘셉트 변경)이 주어지면 기존 바이블을 `_workspace_prev/`로 백업한 뒤 재설계한다.
+
+---
+## Codex 실행 노트 (미러 자동 생성 — 정본: .claude/agents/story-architect.md)
+- 이 정의가 참조하는 '스킬'은 파일이다: `story-bible` 스킬 → `.agents/skills/story-bible/SKILL.md` 를 읽어라. 스킬 디렉토리 전체 목록·집필 루프·품질 게이트는 `.agents/skills/luckyapt-novel/SKILL.md`(오케스트레이터)와 `AGENTS.md` 참조.
+- 품질 게이트는 모델·도구 무관 실행 의무: 정본 프리플라이트(12_canon·06·07 §0~§0-C·09 원장) → 자기 체크리스트 전 항목 답변 → 분량·패턴은 측정 명령을 실제 실행해 수치 기록. 게이트 생략 산출물은 무효.
+- wrighting MCP 도구가 없는 세션은 동기화를 건너뛰고 '미동기 목록'만 보고한다.
+"""

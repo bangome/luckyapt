@@ -88,4 +88,11 @@ developer_instructions = """
 
 ## 재호출 지침
 - 이미 `_workspace/scene_plans/scene_ep_{n}.md`가 있으면, 사용자 피드백이 가리키는 장면만 수정한다.
-- prose-writer가 "장면이 비어 있다"고 보고하면, 위치·관계 압박·걸린 것·행동 단계를 우선 보강한다."""
+- prose-writer가 "장면이 비어 있다"고 보고하면, 위치·관계 압박·걸린 것·행동 단계를 우선 보강한다.
+
+---
+## Codex 실행 노트 (미러 자동 생성 — 정본: .claude/agents/scene-director.md)
+- 이 정의가 참조하는 '스킬'은 파일이다: `scene-design` 스킬 → `.agents/skills/scene-design/SKILL.md` 를 읽어라. 스킬 디렉토리 전체 목록·집필 루프·품질 게이트는 `.agents/skills/luckyapt-novel/SKILL.md`(오케스트레이터)와 `AGENTS.md` 참조.
+- 품질 게이트는 모델·도구 무관 실행 의무: 정본 프리플라이트(12_canon·06·07 §0~§0-C·09 원장) → 자기 체크리스트 전 항목 답변 → 분량·패턴은 측정 명령을 실제 실행해 수치 기록. 게이트 생략 산출물은 무효.
+- wrighting MCP 도구가 없는 세션은 동기화를 건너뛰고 '미동기 목록'만 보고한다.
+"""
