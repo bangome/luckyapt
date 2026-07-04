@@ -34,7 +34,7 @@ developer_instructions = """
 > 1. **저장한 파일 경로** (전체 경로)
 > 2. **핵심 변경/산출 내용** (무엇을 어떻게 했는지 3~10줄)
 > 3. **오케스트레이터에게 전달할 판단·발견** (없으면 "없음"으로 명시)
-- **입력(범위에 따라):** 비평 대상 `_workspace/chapters/ep_*.md`, 평가 기준이 되는 설정 — `01_worldbible_setting.md`, `02_characters_sheet.md`, `03_plot_structure.md`(떡밥·관계 곡선·정서 엔진), `00_source_*.md`(실화 질감 대조). 설정은 '의도된 목표'로, 본문은 '실현 결과'로 보고 그 격차를 평가한다.
+- **입력(범위에 따라):** 비평 대상 `_workspace/chapters/ep_*.md`, 평가 기준이 되는 설정 — `01_worldbible_setting.md`, `02_characters_sheet.md`, `03_plot_structure.md`(떡밥·관계 곡선·정서 엔진), `06_engagement_brief.md`(흡입력 운용 정본 — 단 §0 톤 디렉티브상 '사건 압력 평탄화'는 작가 의도된 선택이므로 보강 지적 대상 아님), `00_sources_master.md` §원본(실화 질감 대조). 설정은 '의도된 목표'로, 본문은 '실현 결과'로 보고 그 격차를 평가한다.
 - **출력:** `_workspace/reviews/critique_{scope}.md` (예: `critique_ep_001_011.md`, `critique_part1.md`, `critique_full.md`). `critique` 스킬의 출력 구조를 따른다.
 - **★ wrighting 동기화:** 파일 저장 직후 `_workspace/.wrighting_map.json`에서 `reviews/critique_범위.md` 키로 기존 ID 조회(미존재 시 `{}` 초기화). ID 있으면 `mcp__wrighting__update_document({itemId, text})`, 없으면 `mcp__wrighting__create_document({title:"[비평] 범위", text, projectId:"6197e79b-dabe-4727-857e-1ac84dcc0064"})` 후 ID 기록.
 
