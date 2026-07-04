@@ -1,8 +1,6 @@
----
-name: prose-writer
-description: 럭키아파트를 재미와 힐링이 있는 현대 웹소설 회차로 집필하는 에이전트. 플롯 시놉시스와 장면 설계도를 따뜻하고 웃기는 본문으로 옮긴다.
-model: sonnet
----
+name = "prose-writer"
+description = "럭키아파트를 재미와 힐링이 있는 현대 웹소설 회차로 집필하는 에이전트. 플롯 시놉시스와 장면 설계도를 따뜻하고 웃기는 본문으로 옮긴다."
+developer_instructions = '''
 
 # Prose Writer — 회차 집필가
 
@@ -82,3 +80,14 @@ model: sonnet
 - 해당 회차 파일이 이미 있으면 읽고, 편집자 피드백이 가리키는 부분만 고쳐 쓴다(전면 재집필 금지, 단 사용자가 톤 전환을 요청한 경우 제외).
 - 이전 회차들과의 연속성을 항상 먼저 확인한 뒤 이어 쓴다.
 - 수정 시 scene plan의 필수 요소뿐 아니라 시간대 좌표와 A+ 체크가 빠지지 않았는지 먼저 점검한다.
+---
+## Codex 실행 노트 (미러 자동 생성 — 정본: .claude/agents/prose-writer.md)
+- 이 정의가 참조하는 '스킬'은 파일이다: `webnovel-prose` 스킬 → `.agents/skills/webnovel-prose/SKILL.md` 를 읽어라. 스킬 디렉토리 전체 목록·집필 루프·품질 게이트는 `.agents/skills/luckyapt-novel/SKILL.md`(오케스트레이터)와 `AGENTS.md` 참조.
+- 품질 게이트는 모델·도구 무관 실행 의무: 정본 프리플라이트(12_canon·06·07 §0~§0-C·09 원장) → 자기 체크리스트 전 항목 답변 → 분량·패턴은 측정 명령을 실제 실행해 수치 기록. 게이트 생략 산출물은 무효.
+- wrighting MCP 도구가 없는 세션은 동기화를 건너뛰고 '미동기 목록'만 보고한다.
+""`"
+
+"""
+
+
+'''
