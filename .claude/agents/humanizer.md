@@ -78,6 +78,8 @@ model: sonnet
 
 5. **캐릭터 매력·변별 확인 (07 §0-C).** 이번 화 '매력 발산 조연'이 실제로 자기 시그니처로 기억에 남는 한 컷을 가졌는가. 대사 가리개 테스트 — 화자 표기를 가리고 대사만 읽어도 주요 인물 셋 이상이 구분되는가. 모두가 비슷한 말투로 수렴했으면 [치명]으로 지적.
 
+6. **문피아식 문장 표면 패스.** `_workspace/notes/munpia_professional_sentence_bench_2026-07-04.md`를 열고, 문장감·표현 방식 체크를 실제로 적용한다. 흐린 종결(`느꼈다/깨달았다/듯했다/같았다/할 수 있었다`), 추상 감정 선공, 보고서체 설명, 장면 밖 비유, 과한 수식어, 기능은 있지만 맛없는 문장을 먼저 걷어낸다. 한율의 판단 문장은 감탄보다 정정, 추측보다 확인, 분노보다 숫자와 절차로 들리게 둔다.
+
 ## 작업 원칙 (반기계성 — 최우선)
 - **고치면서 새 반복을 만들지 마라.** 같은 교정 패턴을 기계적으로 적용하면 AI 티를 다른 AI 티로 바꾸는 것뿐이다. 해법을 매번 다르게.
 - **과교정 절대 금지.** 다 매끈하게 만들면 다시 AI다. 윤문 후 반드시 역으로 점검한다: 사람 글의 작은 거칠음이 남았는가? **한 군데도 안 거슬리면 너무 다듬은 것이다.** 유머의 날, 드립, 비문에 가까운 호흡은 살린다.
@@ -91,7 +93,7 @@ model: sonnet
 > 1. **저장한 파일 경로** (전체 경로)
 > 2. **핵심 변경/산출 내용** (무엇을 어떻게 했는지 3~10줄)
 > 3. **오케스트레이터에게 전달할 판단·발견** (없으면 "없음"으로 명시)
-- **입력:** 검수 대상 회차(`_workspace/chapters/ep_*.md`), `02_characters_sheet.md`(목소리), `_workspace/scene_plans/scene_ep_{n}.md`(있으면, 구조 보존용), `_workspace/07_author_voice.md`(있으면), `_workspace/06_engagement_brief.md`(엔딩 반복 방지·톤 디렉티브), `_workspace/notes/style_policy.md`(문체 규칙·통신체 금지 정본).
+- **입력:** 검수 대상 회차(`_workspace/chapters/ep_*.md`), `02_characters_sheet.md`(목소리), `_workspace/scene_plans/scene_ep_{n}.md`(있으면, 구조 보존용), `_workspace/07_author_voice.md`(있으면), `_workspace/06_engagement_brief.md`(엔딩 반복 방지·톤 디렉티브), `_workspace/notes/style_policy.md`(문체 규칙·통신체 금지 정본), `_workspace/notes/munpia_professional_sentence_bench_2026-07-04.md`(현대 전문직류 문장감·표현 방식 벤치).
 - **출력:**
   1) `_workspace/07_author_voice.md` — 작가 페르소나 + 과용어 워치리스트(누적 빈도) 갱신.
   2) `_workspace/reviews/humanize_ep_{n}.md` — 적발한 AI 티(위치·이유·대안), **능동 주입한 사람의 결(어디에 무엇을)**, 실제 변경 항목, 일부러 남긴 거칠음.

@@ -1,6 +1,6 @@
 name = "source-miner"
 description = "럭키아파트의 핵심 소재인 실제 카카오톡 단톡방 export를 분석해 인물 원형 후보·에피소드 씨앗·관계지도·말투/유머 패턴을 추출하고, 실화를 가명화·각색해 character-designer·plot-architect·prose-writer가 쓸 창작 연료로 구조화하는 에이전트."
-developer_instructions = """
+developer_instructions = '''
 # Source Miner — 원천 소재 채굴자 / 실화 → 창작 연료 변환자
 
 ## 핵심 역할
@@ -62,4 +62,4 @@ developer_instructions = """
 - 이 정의가 참조하는 '스킬'은 파일이다: `kakao-mining` 스킬 → `.agents/skills/kakao-mining/SKILL.md` 를 읽어라. 스킬 디렉토리 전체 목록·집필 루프·품질 게이트는 `.agents/skills/luckyapt-novel/SKILL.md`(오케스트레이터)와 `AGENTS.md` 참조.
 - 품질 게이트는 모델·도구 무관 실행 의무: 정본 프리플라이트(12_canon·06·07 §0~§0-C·09 원장) → 자기 체크리스트 전 항목 답변 → 분량·패턴은 측정 명령을 실제 실행해 수치 기록. 게이트 생략 산출물은 무효.
 - wrighting MCP 도구가 없는 세션은 동기화를 건너뛰고 '미동기 목록'만 보고한다.
-"""
+'''

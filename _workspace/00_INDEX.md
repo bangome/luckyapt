@@ -19,6 +19,7 @@
 | **흡입력·5박자·엔딩 타입·체크리스트 (운용 원칙)** | `06_engagement_brief` + **`docs/문피아 흡입력 지침`(흡수 예정)** | docs 흡입력 지침('n화 금지'·매화 5단계·절단=약속) 흡수. |
 | **유머·드립·러닝 개그·명대사·인물별 웃음 문법** | `05_humor_lines` + **`docs/유머·반어·풍자 문체 설계`(흡수 예정)** | docs 유머 정의문/반어/행정문체 풍자 패턴 흡수. |
 | **작가 페르소나·문체·과용어 워치리스트** | `07_author_voice` + `notes/style_policy.md` + **`docs/작가 필체 정의`(흡수 예정)** | 통신체 금지 = style_policy 정본. docs 필체 정의(따뜻한 회계 현장극체) 흡수. |
+| **문장감·문장 표면·현대 전문직류 설명 운용** | `notes/munpia_professional_sentence_bench_2026-07-04.md` + `webnovel-prose` + `humanizer` | 문피아 공개 페이지 벤치 기반. 원문 모방 금지, 기능만 흡수: 균열 오프닝·목적어 하나·짧은 설명 계단·흐린 종결 제거·생활권 비유·한율의 침착한 판단 문장. |
 | **거시 구조(★420화 5부 계절제·미스터리 프레임)** | `01_worldbible §6-B` (★정본) | 〔2026-06-15 docs 전면 교체〕 구 400화 4시즌·4겹 양파(`01b`·구 03)는 `_archive/03_plot_4season.md` 보존. |
 | **고증(관리·회계·입대의·운영현실)** | `08_domain_master.md` (단일 병합 정본 〔2026-07-04 갱신〕 — 구 09~11 분권은 `_archive/split_docs/` 보존) | 픽션이 고증과 충돌하면 고증이 '현실 근거', 단 캐논이 픽션 설정의 최종. |
 | **떡밥 수명주기(심기·상기·회수·방치위험)** | `09_foreshadow_ledger.md` (★떡밥 원장 〔2026-07-04 신설〕 — plot-architect 소유) | 03의 떡밥 배치는 원장으로 추적. 매 회차 집필·검수 시 대조·갱신. |
@@ -153,6 +154,7 @@
 | **00_sources_master.md** | 소재 원천 통합본 — 에피소드 씨앗 1차/v2/v3, 단톡방 인물 원형, 관계지도, 말투/유머 패턴 | 기존 split 문서는 `_archive/split_docs/`에 보존. 소재를 찾을 때는 이 합본을 우선 열 것 |
 | **08_domain_master.md** | 관리/회계/입대의/운영현실 도메인 고증 통합본 | 기존 08~11 split 문서는 `_archive/split_docs/`에 보존. 고증 확인은 이 합본을 우선 열 것 |
 | **notes/style_policy.md** | 통신체 금지 등 문체 규칙 | 유지(문체 정본) — 07과 짝 |
+| **notes/munpia_professional_sentence_bench_2026-07-04.md** | 현대 전문직류 문장감·문장 표면 벤치 | 유지(문장 표면 정본) — 집필(`webnovel-prose`/prose-writer), 검수(`continuity-check`), 윤문(`humanizer`)에서 함께 참조 |
 | **notes/news_episode_reference_2026.md** | 2026 뉴스 기반 에피소드 소재 참고 | 유지(소재 참고자료, 변형 전제) |
 | **chapters/** | 집필 본문 1~5화(정본) | 본문 이미 정합(폐기어는 헤더 change-note에만). 유지 |
 | **scene_plans/ · reviews/** | 장면 설계도 · 검수 기록(보조) | reviews에 옛 '로맨스/설렘' 평가 잔존 — 기록물이라 보존(현재 정본 아님 명시) |
@@ -186,7 +188,7 @@
 | `03_plot_structure.md` | **plot-architect** | 헤더 노트 → 변경 이력, 폐기어 본문 잔재 갱신, 06 통합 포인터 |
 | `06_engagement_brief.md` | **plot-architect** (또는 story-architect) | "운용 정본=03 §1-C" 포인터 한 줄 |
 | `05_humor_lines.md` | **humor-designer** | 헤더 노트 → 변경 이력, 폐기어 갱신 |
-| `07_author_voice.md` · `notes/style_policy.md` | **humanizer** | 깔끔 유지·짝 포인터 확인 |
+| `07_author_voice.md` · `notes/style_policy.md` · `notes/munpia_professional_sentence_bench_2026-07-04.md` | **humanizer** | 깔끔 유지·짝 포인터 확인. 문장 벤치는 prose-writer·continuity-editor·humanizer 공통 참조로 유지 |
 | `08~11` 고증 | **continuity-editor** (또는 source-miner) | 상록 등 옛 회사명 잔재 확인 |
 | `chapters/` · `scene_plans/` · `reviews/` | **continuity-editor** | 본문 정합 최종 확인(이미 정합, 검증 위주) |
 | `12_canon` | **(수정 최소)** story-architect 검토만 | 최상위 캐논 — 본문 불변, 정정 안내문 유지 |
