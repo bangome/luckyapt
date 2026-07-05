@@ -24,6 +24,20 @@
 
 회차 `_workspace/chapters/ep_{n}_{제목}.md`(정본, 039·040 결번) · 검수 `reviews/review_ep_{n}.md`(구간 배치는 `review_ep_{a}_{b}.md`) · 윤문 `reviews/humanize_ep_{n}.md` · 장면 `scene_plans/scene_ep_{n}.md`(복잡 회차만) · 기획 정본 `00_INDEX`·`12_canon`·`01~09`. wrighting 동기화는 MCP 도구가 있는 세션에서만(없으면 건너뛰고 미동기 목록 보고).
 
+## Wrighting 동기화 필수 절차
+
+Wrighting 동기화가 필요한 산출물(회차·검수·윤문·설정·플롯·동기화 메모)을 만들거나 수정했으면 **도구가 없다고 단정하지 말고 먼저 지연 로드 절차를 실행한다**.
+
+1. `wrighting-mcp` 스킬 지침을 읽는다.
+2. `tool_search`로 `wrighting MCP tools resolve_project find_items get_document patch_document create_document`를 검색해 지연 로드 도구를 노출한다.
+3. `mcp__wrighting.wrighting_status`로 서버 상태를 확인한다.
+4. `mcp__wrighting.resolve_project`로 작품 `대기업 경리과장이 아파트에 위장취업했다` 또는 projectId `6197e79b-dabe-4727-857e-1ac84dcc0064`를 확인한다.
+5. `_workspace/.wrighting_map.json`에 상대경로 매핑이 있으면 해당 item id를 우선 사용하고, 없으면 `find_items`로 대상 문서를 찾는다.
+6. 기존 문서는 `get_document`로 현재 본문을 읽은 뒤 `patch_document`의 `expectedText` 또는 exact-match patch로 반영한다. 새 문서는 `create_document`로 만들고 매핑 원장도 갱신한다.
+7. 최종 보고에는 Wrighting 반영 여부, item id, 미동기 항목을 반드시 적는다.
+
+위 절차를 실행했는데도 `mcp__wrighting` 네임스페이스나 필요한 생성/패치 도구가 없을 때만 "Wrighting 미동기"라고 보고한다.
+
 ## 미러 규칙 (중요)
 
 **정본은 `.claude/`(agents·skills)와 `_workspace/`다.** `.agents/skills/`·`.codex/agents/*.toml`은 Codex용 미러: 하네스를 수정할 땐 `.claude/` 쪽을 고친 뒤 미러에 복사한다(toml은 에이전트 md 본문을 내장하므로 재생성 — 방법은 `.claude/harness-changelog.md` 참조). 이 AGENTS.md는 CLAUDE.md의 사본이 아니라 **Codex 전용 라우터** — 하네스 구조가 바뀔 때만 갱신한다.
